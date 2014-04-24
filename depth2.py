@@ -1,7 +1,7 @@
 # Computes depth statistics for recent M4.5+ earthquakes
 # (Alternate version, using DictReader)
 # Note: requires Python 3.4 due to use of statistics module
-# See https://nickefford.silvrback.com/programming-the-world-3
+# See https://nickefford.silvrback.com/programming-the-world-part-3
 
 import csv
 import statistics

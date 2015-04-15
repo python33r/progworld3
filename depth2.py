@@ -1,7 +1,7 @@
 # Computes depth statistics for recent M4.5+ earthquakes
-# (Alternate version, using DictReader)
+# (Alternate version, using DictReader and list comprehensions)
 # Note: requires Python 3.4 due to use of statistics module
-# See https://nickefford.silvrback.com/programming-the-world-part-3
+# See http://blog.efford.org/prog-world-part3.html
 
 import csv
 import statistics
@@ -10,7 +10,7 @@ from urllib.request import urlopen
 # Construct feed URL for M4.5+ quakes in the past 7 days
 
 base = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/"
-feed_url = base + "significant_month.csv"
+feed_url = base + "4.5_week.csv"
 
 # Open URL and read text from it
 
@@ -21,13 +21,9 @@ text = source.read().decode()
 
 reader = csv.DictReader(text.splitlines())
 
-# Fetch each record and collect depths into a list
+# Extract depths into a list
 
-depths = []
-for record in reader:
-    # Value is a string and must be converted to a float
-    depth = float(record["depth"])
-    depths.append(depth)
+depths = [ float(record["depth"]) for record in reader ]
 
 # Compute mean & standard deviation of depths
 

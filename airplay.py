@@ -1,5 +1,5 @@
 # Finds artists with >10 plays on BBC radio stations in the past week
-# See https://nickefford.silvrback.com/programming-the-world-part-3
+# See http://blog.efford.org/prog-world-part3.html
 
 import json
 from urllib.request import urlopen
